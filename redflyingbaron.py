@@ -1,4 +1,4 @@
-from UserList import UserList
+from collections import OrderedDict
 from redbaron import RedBaron
 
 
@@ -27,7 +27,7 @@ test_files = [
 ]
 
 
-class RedFlyingBaron(UserList):
+class RedFlyingBaron(OrderedDict):
     @classmethod
     def from_paths(class_, files, verbose=False):
         def load_file(path):
