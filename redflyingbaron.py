@@ -36,9 +36,12 @@ class RedFlyingBaron(OrderedDict):
             return RedBaron(open(path, "r").read())
         return class_(dict(zip(files, map(load_file, files))))
 
+    def __repr__(self):
+        return "\n".join(["%s -> %s" % (num, path) for (num, path) in enumerate(self.keys())])
+
 
 def main():
-    RedFlyingBaron.from_paths(test_files, verbose=True)
+    print RedFlyingBaron.from_paths(test_files[:5], verbose=True)
 
 
 if __name__ == '__main__':
