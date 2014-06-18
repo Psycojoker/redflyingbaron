@@ -28,16 +28,17 @@ test_files = [
 
 
 class RedFlyingBaron(UserList):
-    def __init__(self, files, verbose=False):
+    @classmethod
+    def from_paths(class_, files, verbose=False):
         def load_file(path):
             if verbose:
                 print("Loading %s..." % path)
             return RedBaron(open(path, "r").read())
-        self.data = dict(zip(files, map(load_file, files)))
+        return class_(dict(zip(files, map(load_file, files))))
 
 
 def main():
-    RedFlyingBaron(test_files, verbose=True)
+    RedFlyingBaron.from_paths(test_files, verbose=True)
 
 
 if __name__ == '__main__':
