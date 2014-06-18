@@ -31,5 +31,9 @@ class RedFlyingBaron(object):
         self.files = dict(zip(files, map(RedBaron, map(lambda x: open(x, "r").read(), files))))
 
 
-if __name__ == '__main__':
+def main():
     RedFlyingBaron(test_files)
+
+
+if __name__ == '__main__':
+    main()
