@@ -39,6 +39,11 @@ class RedFlyingBaron(OrderedDict):
     def __repr__(self):
         return "\n".join(["%s -> %s" % (num, path) for (num, path) in enumerate(self.keys())])
 
+    def __getitem__(self, key):
+        if isinstance(key, int):
+            key = self.keys()[key]
+        return super(RedFlyingBaron, self).__getitem__(key)
+
 
 def main():
     print RedFlyingBaron.from_paths(test_files[:5], verbose=True)
