@@ -52,6 +52,10 @@ class RedFlyingBaron(OrderedDict):
                     key = i
                     break
 
+                if i.split("/")[-1].split(".")[0] == key:
+                    key = i
+                    break
+
         return super(RedFlyingBaron, self).__getitem__(key)
 
 
