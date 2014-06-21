@@ -42,6 +42,7 @@ class RedFlyingBaron(OrderedDict):
     def __getitem__(self, key):
         if isinstance(key, int):
             key = self.keys()[key]
+
         if isinstance(key, slice):
             return self.__class__(self.items()[key])
         return super(RedFlyingBaron, self).__getitem__(key)
