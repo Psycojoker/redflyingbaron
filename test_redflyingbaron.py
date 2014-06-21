@@ -25,3 +25,9 @@ def test_getitem_slice():
     red = RedFlyingBaron.from_paths(["redflyingbaron.py", "test_redflyingbaron.py"])
     red = red[1:]
     assert red[0].dumps() == RedBaron(open("test_redflyingbaron.py", "r").read()).dumps()
+
+
+def test_getitem_by_filename():
+    red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
+    assert red["redflyingbaron.py"].dumps() == RedBaron(open("redflyingbaron.py", "r").read()).dumps()
+    assert red["test_redflyingbaron.py"].dumps() == RedBaron(open("test_redflyingbaron.py", "r").read()).dumps()
