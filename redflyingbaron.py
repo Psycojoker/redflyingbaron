@@ -56,7 +56,8 @@ class RedFlyingBaron(OrderedDict):
 
 
 def main():
-    print RedFlyingBaron.from_paths(test_files[:5], verbose=True)
+    red = RedFlyingBaron.from_paths(test_files[:5], verbose=True)
+    from ipdb import set_trace; set_trace()
 
 
 if __name__ == '__main__':
