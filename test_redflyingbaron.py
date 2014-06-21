@@ -19,3 +19,9 @@ def test_from_path_verbose():
 def test_getitem_by_index():
     red = RedFlyingBaron.from_paths(["redflyingbaron.py", "test_redflyingbaron.py"])
     assert red[0].dumps() == RedBaron(open("redflyingbaron.py", "r").read()).dumps()
+
+
+def test_getitem_slice():
+    red = RedFlyingBaron.from_paths(["redflyingbaron.py", "test_redflyingbaron.py"])
+    red = red[1:]
+    assert red[0].dumps() == RedBaron(open("test_redflyingbaron.py", "r").read()).dumps()
