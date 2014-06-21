@@ -1,3 +1,4 @@
+import sys
 from collections import OrderedDict
 from redbaron import RedBaron
 
@@ -35,5 +36,9 @@ class RedFlyingBaron(OrderedDict):
         return super(RedFlyingBaron, self).__getitem__(key)
 
 
+def main(args):
+    RedFlyingBaron.from_paths(args, verbose=True)
+
+
 if __name__ == '__main__':
-    pass
+    main(sys.argv[1:])
