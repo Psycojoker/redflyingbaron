@@ -30,11 +30,12 @@ test_files = [
 class RedFlyingBaron(OrderedDict):
     @classmethod
     def from_paths(class_, files, verbose=False):
-        def load_file(path):
+        to_return = class_()
+        for path in files:
             if verbose:
                 print("Loading %s..." % path)
-            return RedBaron(open(path, "r").read())
-        return class_(dict(zip(files, map(load_file, files))))
+            to_return[path] = RedBaron(open(path, "r").read())
+        return to_return
 
     def __repr__(self):
         return "\n".join(["%s -> %s" % (num, path) for (num, path) in enumerate(self.keys())])
