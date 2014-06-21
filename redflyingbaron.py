@@ -45,6 +45,13 @@ class RedFlyingBaron(OrderedDict):
 
         if isinstance(key, slice):
             return self.__class__(self.items()[key])
+
+        if isinstance(key, basestring) and key not in self.keys():
+            for i in self.keys():
+                if i.split("/")[-1] == key:
+                    key = i
+                    break
+
         return super(RedFlyingBaron, self).__getitem__(key)
 
 
