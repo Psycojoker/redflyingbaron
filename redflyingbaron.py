@@ -14,6 +14,8 @@ class RedFlyingBaron(OrderedDict):
         return to_return
 
     def __repr__(self):
+        if not self.keys():
+            return "Empty RedFlyingBaron instance"
         return "\n".join(["%s -> %s" % (num, path) for (num, path) in enumerate(self.keys())])
 
     def __getitem__(self, key):
