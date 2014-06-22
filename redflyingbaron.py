@@ -1,5 +1,8 @@
 import sys
 from collections import OrderedDict
+
+from IPython.terminal.embed import InteractiveShellEmbed
+
 from redbaron import RedBaron
 
 
@@ -39,7 +42,13 @@ class RedFlyingBaron(OrderedDict):
 
 
 def main(args):
-    RedFlyingBaron.from_paths(args, verbose=True)
+    red = RedFlyingBaron.from_paths(args, verbose=True)
+    shell = InteractiveShellEmbed(banner1="", banner2="")
+    shell.push(["red", "RedFlyingBaron"])
+    print "\nRedFlyingBaron instance is available under the name 'red':"
+    print red
+    shell.set_next_input("red")
+    shell()
 
 
 if __name__ == '__main__':
