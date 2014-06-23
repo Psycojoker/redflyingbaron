@@ -48,3 +48,8 @@ def test_find_delegate():
     red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
     assert red.find("name") is red[0].find("name")
     assert red.find("def", name="test_find_delegate") is red[1].find("def", name="test_find_delegate")
+
+
+def test_find_all_delegate():
+    red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
+    assert red.find_all("name") == red[0].find_all("name") + red[1].find_all("name")

@@ -55,6 +55,13 @@ class RedFlyingBaron(OrderedDict):
 
         return None
 
+    def find_all(self, identifier, *args, **kwargs):
+        result = []
+        for i in self.values():
+            result += i.find_all(identifier, *args, **kwargs)
+
+        return result
+
 
 def main(args):
     red = RedFlyingBaron.from_paths(args, verbose=True)
