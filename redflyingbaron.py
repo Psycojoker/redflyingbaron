@@ -40,6 +40,13 @@ class RedFlyingBaron(OrderedDict):
 
         return super(RedFlyingBaron, self).__getitem__(key)
 
+    def display(self):
+        for i in self.keys():
+            print "==============================================================================="
+            print i
+            print "==============================================================================="
+            print self[i]
+
 
 def main(args):
     red = RedFlyingBaron.from_paths(args, verbose=True)

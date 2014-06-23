@@ -37,3 +37,8 @@ def test_getitem_by_filename_without_extension():
     red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
     assert red["redflyingbaron"].dumps() == RedBaron(open("redflyingbaron.py", "r").read()).dumps()
     assert red["test_redflyingbaron"].dumps() == RedBaron(open("test_redflyingbaron.py", "r").read()).dumps()
+
+
+def test_display_exist():
+    red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
+    red.display()
