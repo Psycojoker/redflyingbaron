@@ -42,3 +42,9 @@ def test_getitem_by_filename_without_extension():
 def test_display_exist():
     red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
     red.display()
+
+
+def test_find_delegate():
+    red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
+    assert red.find("name") is red[0].find("name")
+    assert red.find("def", name="test_find_delegate") is red[1].find("def", name="test_find_delegate")

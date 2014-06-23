@@ -47,6 +47,14 @@ class RedFlyingBaron(OrderedDict):
             print "==============================================================================="
             print self[i]
 
+    def find(self, identifier, *args, **kwargs):
+        for i in self.values():
+            result = i.find(identifier, *args, **kwargs)
+            if result is not None:
+                return result
+
+        return None
+
 
 def main(args):
     red = RedFlyingBaron.from_paths(args, verbose=True)
