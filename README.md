@@ -24,6 +24,10 @@ red["test_redflyingbaron.py"]  # access by filename
 red["test_redflyingbaron"]  # access by filename without extension
 red[1:]  # accept slices
 
+red.find("stuff")  # return the first matched stuff
+red.find_all("stuff")  # return all the matched stuff of all the files
+red("stuff")  # same
+
 red.display()  # display the containt of the files, usefull on slice
 ```
 
