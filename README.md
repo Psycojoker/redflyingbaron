@@ -19,7 +19,7 @@ In (I)Python shell:
 
 red  # display the current files
 red[0]  # access by index
-red["./test_redflyingbaron.py"]  # access by path
+red["./test_redflyingbaron.py"]  # access by path (look at how this file is given in the cli, yes, it's a lame example)
 red["test_redflyingbaron.py"]  # access by filename
 red["test_redflyingbaron"]  # access by filename without extension
 red[1:]  # accept slices
