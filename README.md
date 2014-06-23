@@ -36,6 +36,7 @@ Next
 * RedBaron wraper to abstract filesystem (use this to allow python files to be anywhere http://docs.pyfilesystem.org/en/latest/ but start with simple files for now)
 * .save() (should work on RedFlyingBaron instance/slice or on RedBaron wrapped instances)
 * .undo() .redo()
+* .add(file_path) (in the futur accept stuff like "protocol://")
 * .find() and .find_all() should be delegated to RedBaron instances
 * .set_automatic_save() (or some better/other api) -> save at every modification (needs modifications of RedBaron to display hooks)
 
