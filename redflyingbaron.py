@@ -62,6 +62,8 @@ class RedFlyingBaron(OrderedDict):
 
         return result
 
+    __call__ = find_all
+
 
 def main(args):
     red = RedFlyingBaron.from_paths(args, verbose=True)
