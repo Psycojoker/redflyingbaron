@@ -26,3 +26,23 @@ red[1:]  # accept slices
 
 red.display()  # display the containt of the files, usefull on slice
 ```
+
+Todo
+====
+
+Next
+----
+
+* RedBaron wraper to abstract filesystem (use this to allow python files to be anywhere http://docs.pyfilesystem.org/en/latest/ but start with simple files for now)
+* .save() (should work on RedFlyingBaron instance/slice or on RedBaron wrapped instances)
+* .undo() .redo()
+* .find() and .find_all() should be delegated to RedBaron instances
+* .set_automatic_save() (or some better/other api) -> save at every modification (needs modifications of RedBaron to display hooks)
+
+Futur
+-----
+
+* .edit(editor=None) (find editor in $EDITOR of env) launch a text editor on a tmp file containing the currently selected stuff, when editing is done, parse the result and replace the node on which .edit() was done with the result [should be in RedBaron insteand?]
+* session management: automatically save redflyingbaron instance + undo/redo + files containt (not sure on this one) somewhere in .json, allow to list those and go back into a session
+* Add more filesystem abstraction, allow some kind of syntaxe like "sftp://" "fuse://" on the Cli api
+* history should be a tree like in vim/emacs
