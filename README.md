@@ -37,7 +37,6 @@ Next
 * .save() (should work on RedFlyingBaron instance/slice or on RedBaron wrapped instances)
 * .undo() .redo()
 * .add(file_path) (in the futur accept stuff like "protocol://")
-* .find() and .find_all() should be delegated to RedBaron instances
 * .set_automatic_save() (or some better/other api) -> save at every modification (needs modifications of RedBaron to display hooks)
 * allow to filter on filename (with and without extensions) red["f:models"]
 * allow to filter using regex red[re.compile("stuff")] red["re:stuff"]
