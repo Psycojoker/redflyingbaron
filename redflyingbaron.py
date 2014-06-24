@@ -6,6 +6,12 @@ from IPython.terminal.embed import InteractiveShellEmbed
 from redbaron import RedBaron
 
 
+class FSRedBaron(RedBaron):
+    def __init__(self, path):
+        super(FSRedBaron, self).__init__(open(path, "r").read())
+        self.path = path
+
+
 class RedFlyingBaron(OrderedDict):
     @classmethod
     def from_paths(class_, files, verbose=False):
@@ -13,7 +19,7 @@ class RedFlyingBaron(OrderedDict):
         for path in files:
             if verbose:
                 print("Loading %s..." % path)
-            to_return[path] = RedBaron(open(path, "r").read())
+            to_return[path] = FSRedBaron(path)
         return to_return
 
     def __repr__(self):
