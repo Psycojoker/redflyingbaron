@@ -1,3 +1,4 @@
+import os
 import tempfile
 from redbaron import RedBaron
 from redflyingbaron import RedFlyingBaron
@@ -73,3 +74,4 @@ def test_save_delegate():
     red[0].name.value = "plop"
     red.save()
     assert open(temporary_file, "r").read() == "plop = 42"
+    os.remove(temporary_file)
