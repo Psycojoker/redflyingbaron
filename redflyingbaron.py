@@ -73,6 +73,10 @@ class RedFlyingBaron(OrderedDict):
 
     __call__ = find_all
 
+    def save(self):
+        for i in self.values():
+            i.save()
+
 
 def main(args):
     red = RedFlyingBaron.from_paths(args, verbose=True)

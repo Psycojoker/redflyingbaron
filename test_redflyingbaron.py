@@ -64,3 +64,12 @@ def test_save():
     red[0].name.value = "plop"
     red[0].save()
     assert open(temporary_file, "r").read() == "plop = 42"
+
+
+def test_save_delegate():
+    temporary_file = tempfile.mkstemp()[1]
+    open(temporary_file, "w").write("a = 42")
+    red = RedFlyingBaron.from_paths([temporary_file])
+    red[0].name.value = "plop"
+    red.save()
+    assert open(temporary_file, "r").read() == "plop = 42"
