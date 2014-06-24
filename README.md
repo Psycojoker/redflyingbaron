@@ -29,6 +29,9 @@ red.find_all("stuff")  # return all the matched stuff of all the files
 red("stuff")  # same
 
 red.display()  # display the containt of the files, usefull on slice
+
+red[0].save()  # save to disk modifications
+red.save()  # same but for all files of red (can be combine with slices)
 ```
 
 Todo
@@ -37,7 +40,6 @@ Todo
 Next
 ----
 
-* .save() (should work on RedFlyingBaron instance/slice or on RedBaron wrapped instances)
 * .undo() .redo()
 * .add(file_path) (in the futur accept stuff like "protocol://")
 * .set_automatic_save() (or some better/other api) -> save at every modification (needs modifications of RedBaron to display hooks)
