@@ -1,3 +1,4 @@
+import tempfile
 from redbaron import RedBaron
 from redflyingbaron import RedFlyingBaron
 
@@ -54,3 +55,12 @@ def test_find_all_delegate():
     red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
     assert red.find_all("name") == red[0].find_all("name") + red[1].find_all("name")
     assert red("name") == red[0]("name") + red[1]("name")
+
+
+def test_save():
+    temporary_file = tempfile.mkstemp()[1]
+    open(temporary_file, "w").write("a = 42")
+    red = RedFlyingBaron.from_paths([temporary_file])
+    red[0].name.value = "plop"
+    red[0].save()
+    assert open(temporary_file, "r").read() == "plop = 42"
