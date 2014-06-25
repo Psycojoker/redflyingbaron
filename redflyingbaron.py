@@ -38,6 +38,12 @@ class RedFlyingBaron(OrderedDict):
         if isinstance(key, slice):
             return self.__class__(self.items()[key])
 
+        if callable(key):
+            for k, value in self.items():
+                if key(k, value):
+                    key = k
+                    break
+
         if isinstance(key, basestring) and key.startswith("f:"):
             key = key[2:]
 
