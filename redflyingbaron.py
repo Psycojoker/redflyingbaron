@@ -1,3 +1,4 @@
+import re
 import sys
 from collections import OrderedDict
 
@@ -37,8 +38,8 @@ class RedFlyingBaron(OrderedDict):
         if isinstance(key, slice):
             return self.__class__(self.items()[key])
 
-        if isinstance(key, basestring) and key not in self.keys():
-            if key.startswith("f:"):
+        if isinstance(key, (basestring, re._pattern_type)) and key not in self.keys():
+            if isinstance(key, basestring) and key.startswith("f:"):
                 key = key[2:]
                 return self.__class__([x for x in self.items() if self._compare_keys(request=key, mine=x[0])])
 
@@ -50,13 +51,19 @@ class RedFlyingBaron(OrderedDict):
         return super(RedFlyingBaron, self).__getitem__(key)
 
     def _compare_keys(self, request, mine):
-        if request == mine:
+        def test(r, m):
+            if isinstance(r, re._pattern_type):
+                return r.match(m)
+            else:
+                return r == m
+
+        if test(request, mine):
             return True
 
-        if mine.split("/")[-1] == request:
+        if test(mine.split("/")[-1], request):
             return True
 
-        if mine.split("/")[-1].split(".")[0] == request:
+        if test(mine.split("/")[-1].split(".")[0], request):
             return True
 
         return False

@@ -1,4 +1,5 @@
 import os
+import re
 import tempfile
 from redbaron import RedBaron
 from redflyingbaron import RedFlyingBaron
@@ -82,3 +83,8 @@ def test_filter_syntax():
     assert red["f:./redflyingbaron.py"].values() == red[:1].values()
     assert red["f:redflyingbaron.py"].values() == red[:1].values()
     assert red["f:redflyingbaron"].values() == red[:1].values()
+
+
+def test_regex():
+    red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
+    assert red[re.compile(r'[^_]+')] is red[0]
