@@ -28,6 +28,9 @@ red["f:./test_redflyingbaron.py"]  # custom slicing query, returns files that ma
 red["f:redflyingbaron.py"]  # think of using it on a django project and asking
 red["f:redflyingbaron"]     # all "models" files
 
+red[re.compile(r'[^_]+')]  # can use regex (^ and $ are put arround the regex)
+red["re:[^_]+"]  # regex for the lazy
+
 red.find("stuff")  # return the first matched stuff
 red.find_all("stuff")  # return all the matched stuff of all the files
 red("stuff")  # same
