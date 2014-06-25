@@ -44,6 +44,8 @@ red.save()  # same but for all files of red (can be combine with slices)
 
 red[0].reload()  # reread the content of the file
 red.reload()  # same but for all files of red (can be combine with slices)
+
+red.add("/path/to/file", "/path/to/another/file", "again.py")  # add more files
 ```
 
 Todo
