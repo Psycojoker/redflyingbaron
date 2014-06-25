@@ -47,7 +47,6 @@ Next
 * .undo() .redo() (needs modifications of RedBaron to display hooks)
 * .add(file_path) (in the futur accept stuff like "protocol://")
 * .set_automatic_save() (or some better/other api) -> save at every modification (needs modifications of RedBaron to display hooks)
-* allow to filter using regex red[re.compile("stuff")] red["re:stuff"]
 * allow to filter using a lambda red[lambda x: return True]
 * .reload() to reload the content of a file
 
