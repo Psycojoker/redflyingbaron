@@ -99,3 +99,14 @@ def test_regex_syntax():
 def test_callable():
     red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
     assert red[lambda key, value: key == "./redflyingbaron.py"] is red[0]
+
+
+def test_reload():
+    temporary_file = tempfile.mkstemp()[1]
+    open(temporary_file, "w").write("a = 42")
+    red = RedFlyingBaron.from_paths([temporary_file])
+    assert red[0].dumps() == "a = 42"
+    open(temporary_file, "w").write("caramba")
+    red[0].reload()
+    assert red[0].dumps() == "caramba"
+    os.remove(temporary_file)

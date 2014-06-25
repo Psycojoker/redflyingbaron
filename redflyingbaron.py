@@ -15,6 +15,9 @@ class FSRedBaron(RedBaron):
     def save(self):
         open(self.path, "w").write(self.dumps())
 
+    def reload(self):
+        super(FSRedBaron, self).__init__(open(self.path, "r").read())
+
 
 class RedFlyingBaron(OrderedDict):
     @classmethod
