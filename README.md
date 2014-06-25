@@ -41,6 +41,9 @@ red.display()  # display the containt of the files, usefull on slice
 
 red[0].save()  # save to disk modifications
 red.save()  # same but for all files of red (can be combine with slices)
+
+red[0].reload()  # reread the content of the file
+red.reload()  # same but for all files of red (can be combine with slices)
 ```
 
 Todo
