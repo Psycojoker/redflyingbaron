@@ -53,7 +53,6 @@ Next
 ----
 
 * .undo() .redo() (needs modifications of RedBaron to display hooks)
-* .add(file_path) (in the futur accept stuff like "protocol://")
 * .set_automatic_save() (or some better/other api) -> save at every modification (needs modifications of RedBaron to display hooks)
 
 Futur
