@@ -38,17 +38,17 @@ class RedFlyingBaron(OrderedDict):
         if isinstance(key, slice):
             return self.__class__(self.items()[key])
 
-        if isinstance(key, (basestring, re._pattern_type)) and key not in self.keys():
+        if isinstance(key, basestring) and key.startswith("f:"):
+            key = key[2:]
+
             if isinstance(key, basestring) and key.startswith("re:"):
                 key = self._string_to_regex(key)
 
-            if isinstance(key, basestring) and key.startswith("f:"):
-                key = key[2:]
+            return self.__class__([x for x in self.items() if self._compare_keys(request=key, mine=x[0])])
 
-                if isinstance(key, basestring) and key.startswith("re:"):
-                    key = self._string_to_regex(key)
-
-                return self.__class__([x for x in self.items() if self._compare_keys(request=key, mine=x[0])])
+        if isinstance(key, (basestring, re._pattern_type)) and key not in self.keys():
+            if isinstance(key, basestring) and key.startswith("re:"):
+                key = self._string_to_regex(key)
 
             for i in self.keys():
                 if self._compare_keys(request=key, mine=i):
