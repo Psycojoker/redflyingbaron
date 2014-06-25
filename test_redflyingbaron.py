@@ -75,3 +75,10 @@ def test_save_delegate():
     red.save()
     assert open(temporary_file, "r").read() == "plop = 42"
     os.remove(temporary_file)
+
+
+def test_filter_syntax():
+    red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
+    assert red["f:./redflyingbaron.py"].values() == red[:1].values()
+    assert red["f:redflyingbaron.py"].values() == red[:1].values()
+    assert red["f:redflyingbaron"].values() == red[:1].values()

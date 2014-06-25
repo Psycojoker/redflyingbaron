@@ -38,16 +38,28 @@ class RedFlyingBaron(OrderedDict):
             return self.__class__(self.items()[key])
 
         if isinstance(key, basestring) and key not in self.keys():
-            for i in self.keys():
-                if i.split("/")[-1] == key:
-                    key = i
-                    break
+            if key.startswith("f:"):
+                key = key[2:]
+                return self.__class__([x for x in self.items() if self._compare_keys(request=key, mine=x[0])])
 
-                if i.split("/")[-1].split(".")[0] == key:
+            for i in self.keys():
+                if self._compare_keys(request=key, mine=i):
                     key = i
                     break
 
         return super(RedFlyingBaron, self).__getitem__(key)
+
+    def _compare_keys(self, request, mine):
+        if request == mine:
+            return True
+
+        if mine.split("/")[-1] == request:
+            return True
+
+        if mine.split("/")[-1].split(".")[0] == request:
+            return True
+
+        return False
 
     def display(self):
         for i in self.keys():
