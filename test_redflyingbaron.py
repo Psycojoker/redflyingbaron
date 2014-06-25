@@ -121,3 +121,10 @@ def test_reload_delegate():
     red.reload()
     assert red[0].dumps() == "caramba"
     os.remove(temporary_file)
+
+
+def test_add():
+    red = RedFlyingBaron.from_paths([])
+    red.add("./test_redflyingbaron.py", "./redflyingbaron.py")
+    assert red.keys() == ["./test_redflyingbaron.py", "./redflyingbaron.py"]
+    assert red[0].dumps() == open("./test_redflyingbaron.py", "r").read()
