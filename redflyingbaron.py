@@ -124,6 +124,11 @@ class RedFlyingBaron(OrderedDict):
             i.save()
 
 
+    def reload(self):
+        for i in self.values():
+            i.reload()
+
+
 def main(args):
     red = RedFlyingBaron.from_paths(args, verbose=True)
     shell = InteractiveShellEmbed(banner1="", banner2="")

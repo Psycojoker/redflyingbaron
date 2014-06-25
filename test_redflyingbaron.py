@@ -110,3 +110,14 @@ def test_reload():
     red[0].reload()
     assert red[0].dumps() == "caramba"
     os.remove(temporary_file)
+
+
+def test_reload_delegate():
+    temporary_file = tempfile.mkstemp()[1]
+    open(temporary_file, "w").write("a = 42")
+    red = RedFlyingBaron.from_paths([temporary_file])
+    assert red[0].dumps() == "a = 42"
+    open(temporary_file, "w").write("caramba")
+    red.reload()
+    assert red[0].dumps() == "caramba"
+    os.remove(temporary_file)
