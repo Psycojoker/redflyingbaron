@@ -31,6 +31,8 @@ red["f:redflyingbaron"]     # all "models" files
 red[re.compile(r'[^_]+')]  # can use regex (^ and $ are put arround the regex)
 red["re:[^_]+"]  # regex for the lazy
 
+red[lambda key, value: "red" in key]  # can use callable
+
 red.find("stuff")  # return the first matched stuff
 red.find_all("stuff")  # return all the matched stuff of all the files
 red("stuff")  # same
