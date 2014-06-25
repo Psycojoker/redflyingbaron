@@ -24,6 +24,10 @@ red["test_redflyingbaron.py"]  # access by filename
 red["test_redflyingbaron"]  # access by filename without extension
 red[1:]  # accept slices
 
+red["f:./test_redflyingbaron.py"]  # custom slicing query, returns files that match this request
+red["f:redflyingbaron.py"]  # think of using it on a django project and asking
+red["f:redflyingbaron"]     # all "models" files
+
 red.find("stuff")  # return the first matched stuff
 red.find_all("stuff")  # return all the matched stuff of all the files
 red("stuff")  # same
