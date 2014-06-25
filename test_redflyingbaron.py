@@ -88,3 +88,9 @@ def test_filter_syntax():
 def test_regex():
     red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
     assert red[re.compile(r'[^_]+')] is red[0]
+
+
+def test_regex_syntax():
+    red = RedFlyingBaron.from_paths(["./redflyingbaron.py", "./test_redflyingbaron.py"])
+    assert red[r're:[^_]+'] is red[0]
+    assert red[r'f:re:[^_]+'].values() == red[:1].values()
