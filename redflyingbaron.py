@@ -40,23 +40,13 @@ class RedFlyingBaron(OrderedDict):
 
         if isinstance(key, (basestring, re._pattern_type)) and key not in self.keys():
             if isinstance(key, basestring) and key.startswith("re:"):
-                key = key[3:]
-                if not key.startswith("^"):
-                    key = "^" + key
-                if not key.endswith("$"):
-                    key += "$"
-                key = re.compile(key)
+                key = self._string_to_regex(key)
 
             if isinstance(key, basestring) and key.startswith("f:"):
                 key = key[2:]
 
                 if isinstance(key, basestring) and key.startswith("re:"):
-                    key = key[3:]
-                    if not key.startswith("^"):
-                        key = "^" + key
-                    if not key.endswith("$"):
-                        key += "$"
-                    key = re.compile(key)
+                    key = self._string_to_regex(key)
 
                 return self.__class__([x for x in self.items() if self._compare_keys(request=key, mine=x[0])])
 
@@ -66,6 +56,17 @@ class RedFlyingBaron(OrderedDict):
                     break
 
         return super(RedFlyingBaron, self).__getitem__(key)
+
+    def _string_to_regex(self, key):
+        if isinstance(key, basestring) and key.startswith("re:"):
+            key = key[3:]
+            if not key.startswith("^"):
+                key = "^" + key
+            if not key.endswith("$"):
+                key += "$"
+            key = re.compile(key)
+
+        return key
 
     def _compare_keys(self, request, mine):
         def test(r, m):
