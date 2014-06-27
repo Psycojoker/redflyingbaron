@@ -1,0 +1,19 @@
+#!/usr/bin/python
+# -*- coding:Utf-8 -*-
+
+from setuptools import setup
+
+setup(name='redflyingbaron',
+      version='0.1',
+      description='Project wrapper arround RedBaron',
+      author='Laurent Peuch',
+      #long_description='',
+      author_email='cortex@worlddomination.be',
+      url='https://github.com/Psycojoker/redflyingbaron',
+      install_requires=['baron>=0.2', 'redbaron'],
+      packages=[],
+      py_modules=['redflyingbaron'],
+      license= 'lGPLv3+',
+      scripts=['redflyingbaron'],
+      keywords='baron redbaron refactoring editor ast fst',
+     )
