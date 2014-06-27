@@ -134,7 +134,9 @@ class RedFlyingBaron(OrderedDict):
             self[i] = FSRedBaron(i)
 
 
-def main(args):
+def main(args=None):
+    if args is None:
+        args = sys.argv[1:]
     red = RedFlyingBaron.from_paths(args, verbose=True)
     shell = InteractiveShellEmbed(banner1="", banner2="")
     shell.push(["red", "RedFlyingBaron"])
