@@ -14,6 +14,11 @@ setup(name='redflyingbaron',
       packages=[],
       py_modules=['redflyingbaron'],
       license= 'lGPLv3+',
-      scripts=['redflyingbaron'],
+      entry_points={
+          'console_scripts': [
+              'redflyingbaron = redflyingbaron:main',
+              'red = redflyingbaron:main',
+          ]
+      },
       keywords='baron redbaron refactoring editor ast fst',
      )
