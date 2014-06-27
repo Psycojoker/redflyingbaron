@@ -57,6 +57,7 @@ Next
 * .undo() .redo() (needs modifications of RedBaron to display hooks)
 * .set_automatic_save() (or some better/other api) -> save at every modification (needs modifications of RedBaron to display hooks)
 * overload __del__ so it behaves like __getitem__
+* allow to use globs in red[query]
 
 Futur
 -----
