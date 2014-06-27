@@ -13,7 +13,8 @@ class FSRedBaron(RedBaron):
         self.path = path
 
     def save(self):
-        open(self.path, "w").write(self.dumps())
+        data = self.dumps()  # this way we only open the file if .dumps() is successful, avoiding destroying the file
+        open(self.path, "w").write(data)
 
     def reload(self):
         super(FSRedBaron, self).__init__(open(self.path, "r").read())
