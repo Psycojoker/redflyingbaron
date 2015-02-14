@@ -12,7 +12,7 @@ except ImportError:
 
 
 setup(name='redflyingbaron',
-      version='0.1',
+      version='0.1.1',
       description='Project wrapper arround RedBaron',
       author='Laurent Peuch',
       long_description=read_md("README.md") + "\n\n" + open("CHANGELOG", "r").read(),
