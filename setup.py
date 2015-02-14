@@ -29,4 +29,10 @@ setup(name='redflyingbaron',
           ]
       },
       keywords='baron redbaron refactoring editor ast fst',
+      classifiers=['Development Status :: 3 - Alpha',
+                   'Intended Audience :: Developers',
+                   'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+                   'Topic :: Software Development',
+                   'Topic :: Software Development :: Code Generators',
+                  ]
      )
