@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.1 (2015-02-14)
+----------------
+
+- Convert README to rst for pypi
+- add some classifiers
+
 0.1 (2015-02-14)
 ----------------
 
